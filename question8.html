@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Operation on JavaScript Cookies</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>CRUD Operation Using JavaScript Cookies</h2>
+
+    <input type="text" id="name" placeholder="Enter Cookie Name">
+
+    <input type="text" id="value" placeholder="Enter Cookie Value">
+
+    <br>
+
+    <button onclick="createCookie()">Create Cookie</button>
+
+    <button onclick="readCookie()">Read Cookie</button>
+
+    <button onclick="updateCookie()">Update Cookie</button>
+
+    <button onclick="deleteCookie()">Delete Cookie</button>
+
+    <div id="output">
+        Output will appear here.
+    </div>
+
+
+    <script>
+
+        // CREATE
+        function createCookie() {
+
+            let name = document.getElementById("name").value;
+            let value = document.getElementById("value").value;
+
+            if (name === "" || value === "") {
+                document.getElementById("output").innerHTML =
+                    "Please enter cookie name and value.";
+                return;
+            }
+
+            document.cookie = name + "=" + encodeURIComponent(value) +
+                "; expires=" +
+                new Date(Date.now() + 86400000).toUTCString() +
+                "; path=/";
+
+            document.getElementById("output").innerHTML =
+                "Cookie Created Successfully!<br>" +
+                "Name: " + name + "<br>" +
+                "Value: " + value;
+        }
+
+
+        // READ
+        function readCookie() {
+
+            let cookies = document.cookie;
+
+            if (cookies === "") {
+                document.getElementById("output").innerHTML =
+                    "No cookies found.";
+            } else {
+                document.getElementById("output").innerHTML =
+                    "<b>Cookies:</b><br>" + cookies;
+            }
+        }
+
+
+        // UPDATE
+        function updateCookie() {
+
+            let name = document.getElementById("name").value;
+            let value = document.getElementById("value").value;
+
+            if (name === "" || value === "") {
+                document.getElementById("output").innerHTML =
+                    "Please enter cookie name and new value.";
+                return;
+            }
+
+            document.cookie = name + "=" + encodeURIComponent(value) +
+                "; expires=" +
+                new Date(Date.now() + 86400000).toUTCString() +
+                "; path=/";
+
+            document.getElementById("output").innerHTML =
+                "Cookie Updated Successfully!<br>" +
+                "Name: " + name + "<br>" +
+                "New Value: " + value;
+        }
+
+
+        // DELETE
+        function deleteCookie() {
+
+            let name = document.getElementById("name").value;
+
+            if (name === "") {
+                document.getElementById("output").innerHTML =
+                    "Please enter cookie name.";
+                return;
+            }
+
+            document.cookie = name +
+                "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+
+            document.getElementById("output").innerHTML =
+                "Cookie Deleted Successfully!<br>" +
+                "Deleted Cookie: " + name;
+        }
+
+    </script>
+
+</body>
+</html>

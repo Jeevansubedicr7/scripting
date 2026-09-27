@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript DOM Example</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        input {
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px 15px;
+        }
+
+        li {
+            margin: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Task Manager</h2>
+
+    <!-- Input field for entering a task -->
+    <input type="text" id="taskInput" placeholder="Enter your task">
+
+    <!-- Button calls addTask() function -->
+    <button onclick="addTask()">Add Task</button>
+
+    <h3>My Tasks:</h3>
+
+    <!-- Empty list where tasks will be added -->
+    <ul id="taskList"></ul>
+
+
+    <script>
+
+        function addTask() {
+
+            // Access the input element using DOM
+            let input = document.getElementById("taskInput");
+
+            // Get the value entered by the user
+            let task = input.value;
+
+            // Check if the input is empty
+            if (task === "") {
+                alert("Please enter a task!");
+            }
+            else {
+
+                // Create a new <li> element using DOM
+                let listItem = document.createElement("li");
+
+                // Add the task text to the <li> element
+                listItem.textContent = task;
+
+                // Access the <ul> element
+                let taskList = document.getElementById("taskList");
+
+                // Add the new <li> element to the <ul>
+                taskList.appendChild(listItem);
+
+                // Clear the input field after adding the task
+                input.value = "";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

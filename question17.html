@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Events</title>
+
+    <!-- Include jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        #box {
+            width: 300px;
+            padding: 30px;
+            background-color: lightblue;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+
+        #message {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>jQuery Event Handling</h2>
+
+    <button id="clickBtn">Click Me</button>
+    <button id="doubleBtn">Double Click Me</button>
+
+    <div id="box">
+        Move your mouse over this box
+    </div>
+
+    <br>
+
+    <label>Type Something:</label>
+    <input type="text" id="textBox">
+
+    <p id="message"></p>
+
+
+    <script>
+
+        // Execute when the document is completely loaded
+        $(document).ready(function() {
+
+            // Click event
+            $("#clickBtn").click(function() {
+                $("#message").text("Button was clicked!");
+            });
+
+
+            // Double-click event
+            $("#doubleBtn").dblclick(function() {
+                $("#message").text("Button was double-clicked!");
+            });
+
+
+            // Mouse enter event
+            $("#box").mouseenter(function() {
+                $(this).css("background-color", "lightgreen");
+                $(this).text("Mouse entered the box!");
+            });
+
+
+            // Mouse leave event
+            $("#box").mouseleave(function() {
+                $(this).css("background-color", "lightblue");
+                $(this).text("Mouse left the box!");
+            });
+
+
+            // Keyup event
+            $("#textBox").keyup(function() {
+
+                // Get the value entered in the text box
+                let text = $(this).val();
+
+                $("#message").text("You typed: " + text);
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

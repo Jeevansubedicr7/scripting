@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Built-in Objects</title>
+</head>
+
+<body>
+
+    <h2>JavaScript Built-in Objects</h2>
+
+    <script>
+
+        // 1. Array Object
+        let fruits = ["Apple", "Banana", "Mango"];
+
+        document.write("<h3>Array Object</h3>");
+        document.write("Array: " + fruits + "<br>");
+        document.write("Array Length: " + fruits.length + "<br>");
+        document.write("First Element: " + fruits[0] + "<br>");
+
+
+        // 2. Date Object
+        let today = new Date();
+
+        document.write("<h3>Date Object</h3>");
+        document.write("Current Date: " + today.toDateString() + "<br>");
+        document.write("Current Year: " + today.getFullYear() + "<br>");
+
+
+        // 3. Math Object
+        document.write("<h3>Math Object</h3>");
+        document.write("Square Root of 25: " + Math.sqrt(25) + "<br>");
+        document.write("Power of 2^3: " + Math.pow(2, 3) + "<br>");
+        document.write("Maximum Number: " + Math.max(10, 20, 30) + "<br>");
+
+
+        // 4. Number Object
+        let num = 123.456;
+
+        document.write("<h3>Number Object</h3>");
+        document.write("Number: " + num + "<br>");
+        document.write("Fixed to 2 Decimal Places: " + num.toFixed(2) + "<br>");
+        document.write("Integer Value: " + parseInt(num) + "<br>");
+
+
+        // 5. String Object
+        let text = "JavaScript Programming";
+
+        document.write("<h3>String Object</h3>");
+        document.write("String: " + text + "<br>");
+        document.write("String Length: " + text.length + "<br>");
+        document.write("Uppercase: " + text.toUpperCase() + "<br>");
+        document.write("Lowercase: " + text.toLowerCase() + "<br>");
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browser, Window and Frame Methods</title>
+</head>
+
+<body>
+
+    <h2>JavaScript Interaction with Browser, Window and Frames</h2>
+
+    <!-- Window Methods -->
+    <button onclick="showAlert()">Alert</button>
+    <button onclick="showConfirm()">Confirm</button>
+    <button onclick="showPrompt()">Prompt</button>
+    <button onclick="openWindow()">Open Window</button>
+
+    <br><br>
+
+    <!-- Browser Information -->
+    <button onclick="browserInfo()">Browser Information</button>
+
+    <br><br>
+
+    <!-- Frame -->
+    <iframe src="https://example.com" width="400" height="200">
+    </iframe>
+
+    <script>
+
+        // 1. Alert Method
+        function showAlert() {
+            alert("Hello! This is an Alert Box.");
+        }
+
+
+        // 2. Confirm Method
+        function showConfirm() {
+            let result = confirm("Do you want to continue?");
+
+            if (result) {
+                alert("You clicked OK.");
+            } else {
+                alert("You clicked Cancel.");
+            }
+        }
+
+
+        // 3. Prompt Method
+        function showPrompt() {
+            let name = prompt("Enter your name:");
+
+            alert("Hello " + name);
+        }
+
+
+        // 4. Open a New Window
+        function openWindow() {
+            window.open("https://www.google.com");
+        }
+
+
+        // 5. Browser Information
+        function browserInfo() {
+
+            document.write("Browser Name: " + navigator.appName + "<br>");
+
+            document.write("Browser Version: " +
+                           navigator.appVersion + "<br>");
+
+            document.write("Platform: " +
+                           navigator.platform);
+        }
+
+
+        // 6. Window Object Methods
+
+        // window.setTimeout()
+        setTimeout(function() {
+            console.log("This message appears after 3 seconds.");
+        }, 3000);
+
+
+        // window.setInterval()
+        setInterval(function() {
+            console.log("This message repeats every 5 seconds.");
+        }, 5000);
+
+
+        // 7. Frame Object
+
+        console.log("Number of Frames: " + window.frames.length);
+
+    </script>
+
+</body>
+</html>
